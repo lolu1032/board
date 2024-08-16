@@ -8,4 +8,8 @@
         insert into boardtable (boardWriter, boardPass, boardTitle, boardContents)
         values (#{boardWriter}, #{boardPass}, #{boardTitle}, #{boardContents})
     </insert>
+
+    <select id="list" resultType="BoardDTO">
+        select id,boardTitle,boardWriter from boardtable
+    </select>
 </mapper>

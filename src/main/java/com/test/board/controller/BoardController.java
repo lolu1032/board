@@ -4,8 +4,11 @@ import com.test.board.dto.BoardDTO;
 import com.test.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,6 +23,7 @@ public class BoardController {
     public String saveForm(BoardDTO boardDTO) {
         service.save(boardDTO);
         System.out.println("boardDTO = " + boardDTO);
-        return "index";
+        return "redirect:/";
     }
+
 }

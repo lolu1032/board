@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class BoardDAO {
@@ -12,5 +14,9 @@ public class BoardDAO {
 
     public int save(BoardDTO boardDTO) {
         return sqlSession.insert("com.test.board.boardMapper.save",boardDTO);
+    }
+
+    public List<BoardDTO> list() {
+        return sqlSession.selectList("com.test.board.boardMapper.list");
     }
 }

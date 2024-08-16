@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table" th:fragment="content">
+    <thead>
+    <tr>
+        <th scope="col" colspan="1">번호</th>
+        <th scope="col" colspan="8" style="text-align: center;">제목</th>
+        <th scope="col" colspan="2" style="text-align: center;">아이디</th>
+        <th scope="col" colspan="1" style="text-align: center;">날짜</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider table-divider-color">
+    <tr>
+        <th scope="row">1</th>
+        <td colspan="8">Mark</td>
+        <td colspan="2" style="text-align: center; vertical-align: middle;">Otto</td>
+        <td colspan="1" style="text-align: center; vertical-align: middle;">@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td colspan="8">Another Title</td>
+        <td colspan="2" style="text-align: center; vertical-align: middle;">Otto</td>
+        <td colspan="1" style="text-align: center; vertical-align: middle;">@mdo</td>
+    </tr>
+    <tr th:each="list : ${list}">
+        <th scope="row" th:text="${list.id}">3</th>
+        <td colspan="8" th:text="${list.boardTitle}">Yet Another Title</td>
+        <td colspan="2" style="text-align: center; vertical-align: middle;" th:text="${list.boardWriter}">Otto</td>
+        <td colspan="1" style="text-align: center; vertical-align: middle;" >@mdo</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 글쓰기 버튼 -->
+<div th:fragment="content" style="text-align: right; margin-top: 20px;">
+    <button type="button" class="btn btn-primary" onclick="location.href='/save'">글쓰기</button>
+</div>
+</body>
+</html>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
 <body>
-    <div>게시글이란것</div>
-    <a href="save">게시글작성</a>
+<div class="wrap">
+    <div th:insert="~{fragments/header :: header}"></div>
+    <div th:insert="~{fragments/content :: content}"></div>
+    <div th:insert="~{fragments/footer :: footer}" class="footer"></div>
+</div>
 </body>
 </html>
