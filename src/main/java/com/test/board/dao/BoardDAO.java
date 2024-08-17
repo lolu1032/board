@@ -1,6 +1,7 @@
 package com.test.board.dao;
 
 import com.test.board.dto.BoardDTO;
+import com.test.board.vo.CriteriaVO;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,12 @@ public class BoardDAO {
 
     public List<BoardDTO> list() {
         return sqlSession.selectList("com.test.board.boardMapper.list");
+    }
+
+    public int pageCount() {
+        return sqlSession.selectOne("com.test.board.boardMapper.pageCount");
+    }
+    public List<BoardDTO> paging(CriteriaVO cv) {
+        return sqlSession.selectList("com.test.board.boardMapper.paging",cv);
     }
 }

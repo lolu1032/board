@@ -15,23 +15,11 @@
     </tr>
     </thead>
     <tbody class="table-group-divider table-divider-color">
-    <tr>
-        <th scope="row">1</th>
-        <td colspan="8">Mark</td>
-        <td colspan="2" style="text-align: center; vertical-align: middle;">Otto</td>
+    <tr th:each="item : ${list}">
+        <th scope="row" th:text="${item.id}">3</th>
+        <td colspan="8" th:text="${item.boardTitle}">Yet Another Title</td>
+        <td colspan="2" style="text-align: center; vertical-align: middle;" th:text="${item.boardWriter}">Otto</td>
         <td colspan="1" style="text-align: center; vertical-align: middle;">@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td colspan="8">Another Title</td>
-        <td colspan="2" style="text-align: center; vertical-align: middle;">Otto</td>
-        <td colspan="1" style="text-align: center; vertical-align: middle;">@mdo</td>
-    </tr>
-    <tr th:each="list : ${list}">
-        <th scope="row" th:text="${list.id}">3</th>
-        <td colspan="8" th:text="${list.boardTitle}">Yet Another Title</td>
-        <td colspan="2" style="text-align: center; vertical-align: middle;" th:text="${list.boardWriter}">Otto</td>
-        <td colspan="1" style="text-align: center; vertical-align: middle;" >@mdo</td>
     </tr>
     </tbody>
 </table>
@@ -40,5 +28,12 @@
 <div th:fragment="content" style="text-align: right; margin-top: 20px;">
     <button type="button" class="btn btn-primary" onclick="location.href='/save'">글쓰기</button>
 </div>
+<nav aria-label="Page navigation example" th:fragment="content">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" th:each="pageNum : ${#numbers.sequence(pageMaker.startPage, pageMaker.endPage)}">
+            <a class="page-link" th:href="@{'/?page=' + ${pageNum} + '&perPageNum=' + ${pageMaker.cri.perPageNum}}" th:text="${pageNum}">1</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>

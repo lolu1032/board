@@ -12,4 +12,13 @@
     <select id="list" resultType="BoardDTO">
         select id,boardTitle,boardWriter from boardtable
     </select>
+    <select id="paging" resultType="BoardDTO">
+        select id,boardTitle,boardWriter from boardtable
+        where id > 0
+        order by id desc
+        limit #{pageStart},#{perPageNum}
+    </select>
+    <select id="pageCount" resultType="Integer">
+        select count(*) from boardtable
+    </select>
 </mapper>
